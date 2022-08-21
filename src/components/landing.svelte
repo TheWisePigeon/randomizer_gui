@@ -1,10 +1,4 @@
-<script>
-</script>
 
-<div class=" flex justify-between p-5 items-baseline bg-rose-400">
-    <div class=" text-2xl font-bold">Randomiz</div>
-    <div class=" text-lg">About</div>
-</div>
 <div class="  flex justify-center items-center h-screen w-full p-4">
     <div class=" text-3xl text-center  flex-col justify-between h-3/5 ">
         <div>
