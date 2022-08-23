@@ -5,6 +5,6 @@
   }
 </script>
 
-<div class="bg-gray-600 rounded-md p-2" on:click="{handleClick}">
+<button class="bg-gray-600 rounded-md p-2" on:click="{handleClick}">
   {name}
-</div>
+</button>
