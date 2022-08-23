@@ -1,5 +1,6 @@
 <script lang="ts">
   import axios from "axios";
+  import Field from "../../components/field.svelte";
   const fetchFields = (
     async () => {
       const fields = axios.get('http://localhost:5000/fields')
@@ -14,7 +15,6 @@
       return fields
     } 
   )()
-  let fields = ['String', 'bruh', 'test']
 </script>
 
 <div>
@@ -29,17 +29,14 @@
     </select>
   </div>
   <div>
-    {#each fields as field}
-      <div>
-        {field}
-      </div>
-    {/each}
-  </div>
-  <div>
     {#await fetchFields}
       <p>Loading fields</p>
     {:then data}
-      <p>{data}</p>
+      <div>
+        {#each data as d}
+          <Field name={d} />
+        {/each}
+      </div>
     {/await}
   </div>
 </div>
