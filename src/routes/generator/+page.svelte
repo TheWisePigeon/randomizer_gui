@@ -17,14 +17,14 @@
   )()
 </script>
 
-<div class=" w-3/5">
+<div class=" w-3/5 text-center">
   <p>Choose fields to add to your model down below</p>
   
-  <div class=" w-3/5">
+  <div class="">
     {#await fetchFields}
       <p>Loading fields</p>
     {:then data}
-      <div class=" w-3/5 flex justify-between">
+      <div class="flex-wrap flex justify-between">
         {#each data as d}
           <Field name={d} />
         {/each}
