@@ -1,4 +1,19 @@
 <script lang="ts">
+  import axios from "axios";
+  const fetchFields = (
+    async () => {
+      const fields = axios.get('http://localhost:5000/fields')
+        .then(
+          res=>{
+            return res.data
+          }
+        )
+        .catch(
+          err=>err
+        )
+      return fields
+    } 
+  )()
   let fields = ['String', 'bruh', 'test']
 </script>
 
@@ -19,5 +34,12 @@
         {field}
       </div>
     {/each}
+  </div>
+  <div>
+    {#await fetchFields}
+      <p>Loading fields</p>
+    {:then data}
+      <p>{data}</p>
+    {/await}
   </div>
 </div>
