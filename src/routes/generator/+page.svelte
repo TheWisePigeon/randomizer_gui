@@ -17,22 +17,14 @@
   )()
 </script>
 
-<div>
-  <p>Generate your data </p>
-  <div class=" flex flex-col justify-around" >
-    <select name="fields" id="fields">
-      <option value="email">email</option>
-      <option value="name">name</option>
-      <option value="password">password</option>
-      <option value="address">address</option>
-      <option value="phone">phone</option>
-    </select>
-  </div>
-  <div>
+<div class=" w-3/5">
+  <p>Choose fields to add to your model down below</p>
+  
+  <div class=" w-3/5">
     {#await fetchFields}
       <p>Loading fields</p>
     {:then data}
-      <div>
+      <div class=" w-3/5 flex justify-between">
         {#each data as d}
           <Field name={d} />
         {/each}
