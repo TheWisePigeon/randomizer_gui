@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
   import { fields } from "../stores/fields";
   /**@type {any}*/
   let chosenFields;
@@ -14,7 +16,10 @@
         alert('Its in')
         return
     }
-    alert('Its not in')
+    fields.update(
+        state=>[...state, name]
+    )
+    alert(chosenFields)
   }
 </script>
 
