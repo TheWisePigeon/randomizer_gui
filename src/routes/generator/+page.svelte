@@ -22,7 +22,7 @@
     }
     console.log(object)
     let result = await axios.post(
-      'http://localhost:5000/generate',
+      'https://blooming-gorge-76891.herokuapp.com/generate',
       object
     ).then(
       res=>res.data
@@ -36,7 +36,7 @@
 
   const fetchFields = (
     async () => {
-      const fields = axios.get('http://localhost:5000/fields')
+      const fields = axios.get('https://blooming-gorge-76891.herokuapp.com/fields')
         .then(
           res=>{
             return res.data
