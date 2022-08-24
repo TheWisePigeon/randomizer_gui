@@ -4,6 +4,6 @@
 </script>
 
 <Navbar/>
-<div class=" flex h-screen w-full justify-center items-center bg-fuchsia-400">
+<div class=" flex h-96 w-full justify-around text-center  flex-col bg-fuchsia-400 text-white">
   <slot />
 </div>
