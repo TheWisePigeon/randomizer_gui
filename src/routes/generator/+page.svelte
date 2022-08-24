@@ -2,6 +2,9 @@
   import axios from "axios"
   import Field from "../../components/field.svelte"
   import { fields } from "../../stores/fields"
+  import fileDownload from 'js-file-download';
+  
+
   let chosenFields: string[]
   fields.subscribe((value) => {
     chosenFields = value;
@@ -27,6 +30,7 @@
       err=>err
     )
     console.log(result)
+    fileDownload(result, `data.${format}`)
     
   }
 
