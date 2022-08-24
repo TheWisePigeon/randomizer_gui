@@ -6,7 +6,7 @@
             Describe your user data schema and generate up to 100 rows downlodable as CSV and JSON. <br>
         </div>
         <div>
-            <button class=" rounded-2xl p-3 bg-fuchsia-400 text-white hover:bg-white hover:text-fuchsia-400 ">
+            <button class=" rounded-2xl p-3 bg-green-400 text-white hover:bg-white hover:text-green-400 ">
                 <a href="/generator">Get started</a>
             </button>
         </div>
