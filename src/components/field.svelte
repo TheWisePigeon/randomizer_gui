@@ -28,6 +28,6 @@
   }
 </script>
 
-<button class={`bg-gray-600 rounded-md p-2 ${fieldIn? 'bg-green-400':''} `} on:click={handleClick}>
+<button class={`bg-gray-600 rounded-md m-2 p-2 ${fieldIn? 'bg-green-400':''} `} on:click={handleClick}>
   {name}
 </button>

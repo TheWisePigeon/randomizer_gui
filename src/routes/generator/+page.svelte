@@ -20,11 +20,11 @@
 <div class=" w-3/5 text-center">
   <p>Choose fields to add to your model down below</p>
   
-  <div class="">
+  <div class=" overflow-y-scroll h-42">
     {#await fetchFields}
       <p>Loading fields</p>
     {:then data}
-      <div class="flex-wrap flex justify-between">
+      <div class="grid-cols-3 grid m-5">
         {#each data as d}
           <Field name={d} />
         {/each}
