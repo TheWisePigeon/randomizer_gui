@@ -1,7 +1,31 @@
 <script lang="ts">
-  import axios from "axios";
-  import Field from "../../components/field.svelte";
-  
+  import axios from "axios"
+  import Field from "../../components/field.svelte"
+  import { fields } from "../../stores/fields"
+  let chosenFields: string[]
+  fields.subscribe((value) => {
+    chosenFields = value;
+  });
+
+  const generate =async () => {
+    let object = {
+      "fields": chosenFields,
+      "format": format,
+      "rowCount": rows
+    }
+    console.log(object)
+    let result = await axios.post(
+      'http://localhost:5000/generate',
+      object
+    ).then(
+      res=>res.data
+    ).catch(
+      err=>err
+    )
+    console.log(result)
+    
+  }
+
   const fetchFields = (
     async () => {
       const fields = axios.get('http://localhost:5000/fields')
@@ -16,8 +40,15 @@
       return fields
     } 
   )()
-  let rows: Number 
+  let format: String
+  const setFormat = (e:Event)=>{
+    let value = (e.target as HTMLInputElement).value
+    format = value
+    
+  }
+  let rows: Number = 50
   $: rowsMax = rows>100
+  $: chosenFormat = format
 </script>
 
 <div class=" w-3/5 text-center m-auto">
@@ -36,13 +67,17 @@
   </div>
 </div>
 <div class=" m-auto flex justify-start flex-col">
-  <input type="text" class=" text-black text-center rounded-md focus:outline-none w-16 m-auto caret-green-600" bind:value="{rows}" placeholder="rows">
+  <p class="font-bold">Number of rows</p>
+  <input type="text" class=" text-black text-center rounded-md focus:outline-none w-16 m-auto caret-green-600" bind:value="{rows}" >
   {#if rowsMax}
     <span class="text-red-500 text-xs">rows can't exceed 100</span>
   {/if}
   <p class=" underline font-bold text-white">Download as</p>
   <div class=" flex justify-between">
-    <button class=" bg-green-400 p-2 rounded-md m-2 w-16 text-center">CSV</button>
-    <button class=" bg-green-400 p-2 rounded-md m-2 w-16 text-center">JSON</button>
+    <button on:click="{setFormat}" value="json" class={` p-2 rounded-md m-2 w-16 text-center ${chosenFormat=='json'?'bg-green-400':'bg-slate-500'}`}>JSON</button>
+    <button on:click="{setFormat}" value="csv" class={` p-2 rounded-md m-2 w-16 text-center ${chosenFormat=='csv'?'bg-green-400':'bg-slate-500'}`}>CSV</button>
   </div>
+  <button on:click="{generate}" class=" bg-green-400 rounded-md p-2 m-2">
+    GENERATE
+  </button>
 </div>

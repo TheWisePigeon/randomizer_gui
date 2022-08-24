@@ -1,5 +1,4 @@
 <script>
-// @ts-nocheck
 
   import { fields } from "../stores/fields";
   /**@type {any}*/
@@ -15,7 +14,7 @@
   function handleClick() {
     if(chosenFields.includes(name)){
         let updated = chosenFields.filter(
-            field => field!==name
+(            /** @type {any} */ field) => field!==name
         )
         fields.update(
             state=>updated
