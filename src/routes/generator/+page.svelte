@@ -29,7 +29,7 @@
     ).catch(
       err=>err
     )
-    console.log(result)
+    
     fileDownload(result, `data.${format}`)
     
   }
