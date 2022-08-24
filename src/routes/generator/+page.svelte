@@ -13,6 +13,10 @@
       "format": format,
       "rowCount": rows
     }
+    if(!format){
+      alert('Please choose a format')
+      return
+    }
     console.log(object)
     let result = await axios.post(
       'http://localhost:5000/generate',
