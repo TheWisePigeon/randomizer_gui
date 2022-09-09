@@ -6,5 +6,5 @@
     
 </div>
 <div class="absolute bottom-52">
-    Made with Svelte and 💕 by <a href="github.com/TheWisePigeon" class="text-green-400 font-bold underline text-lg">Me</a>
+    Made with Svelte and 💕 by <a href="https://github.com/TheWisePigeon" class="text-green-400 font-bold underline text-lg">TheWisePigeon</a>
 </div>
