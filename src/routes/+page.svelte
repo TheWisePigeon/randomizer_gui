@@ -36,6 +36,15 @@
     fields.update((fields) => [...fields, { name: name, type: type }]);
     name='' 
   };
+
+  const generate = ()=>{
+    console.log(fieldsArray);
+    let postData: { [x: string]: string; } = {}
+    fieldsArray.forEach(element => {
+        postData[element.name]= element.type
+    });
+    
+  }
 </script>
 
 <div class=" w-2/5  justify-center h-screen">
@@ -95,5 +104,10 @@
     {#each fieldsArray as field}
       <Field name={field.name} type={field.type} />
     {/each}
+  </div>
+  <div class=" text-center bg-green-700 my-3">
+    <button on:click="{generate}" class=" w-full">
+      Generate
+    </button>
   </div>
 </div>
