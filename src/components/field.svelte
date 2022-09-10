@@ -1,28 +1,19 @@
 <script lang="ts">
-  import axios from "axios";
-  let generatorsArray: ArrayLike<unknown>;
-  const generators = Promise.resolve(
-    axios.get("http://127.0.0.1:5500/generators")
-  );
 
-  generators.then((value) => {
-    generatorsArray = value.data.generators as ArrayLike<unknown>
-  });
+
+  const removeField = ()=>{
+
+  }
 </script>
 
 <div class=" flex justify-between w-full ">
-  <input
-    type="text"
-    class=" text-center bg-transparent rounded focus:outline-none border-white border"
-    placeholder="Field"
-  />
-  {#if generatorsArray != null}
-    <select class=" bg-transparent rounded border-white border" name="type" id="">
-      {#each generatorsArray as generator}
-        <option class=" bg-slate-700" value={generator}>{generator}</option>
-      {/each}
-    </select>
-  {/if}
+<div>
+  Name  
+</div>
+<div>
+  Address
+</div>
+
   <button>
     <svg
       xmlns="http://www.w3.org/2000/svg"
