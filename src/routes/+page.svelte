@@ -2,10 +2,15 @@
   import Field from "../components/field.svelte";
   import { fields } from "../stores/stores";
   import axios from "axios";
-  let fieldsValue;
+  let fieldsArray:{
+    name: string,
+    type: string
+  }[]
+
+ 
 
   fields.subscribe((value) => {
-    fieldsValue = value;
+    fieldsArray = value;
   });
 
   let generatorsArray: ArrayLike<unknown>;
@@ -21,9 +26,9 @@
 <div class=" w-2/5  justify-center h-screen">
   <div class="text-center">Describe your user schema</div>
   <div class=" flex justify-between my-4">
-    <input class=" bg-transparent border-white border rounded focus:outline-none" type="text" name="" id="" placeholder="Field" />
+    <input class=" bg-transparent border-white border-b focus:outline-none" type="text" name="" id="" placeholder="Field" />
     {#if generatorsArray != null}
-    <select class=" bg-transparent rounded border-white border" name="type" id="">
+    <select class=" bg-transparent border-white border-b" name="type" id="">
       {#each generatorsArray as generator}
         <option class=" bg-slate-700" value={generator}>{generator}</option>
       {/each}
@@ -47,5 +52,7 @@
     </button>
   </div>
   <div class=" flex justify-between" />
-  <Field />
+  {#each fieldsArray as field}
+    <Field name={field.name} type={field.type} />
+  {/each}
 </div>

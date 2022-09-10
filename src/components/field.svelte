@@ -1,20 +1,21 @@
 <script lang="ts">
+  export let name: string;
+  export let type: string;
 
-
-  const removeField = ()=>{
-
-  }
+  const removeField = () => {
+    alert("duh");
+  };
 </script>
 
 <div class=" flex justify-between w-full ">
-<div>
-  Name  
-</div>
-<div>
-  Address
-</div>
+  <div class=" text-center">
+    {name}
+  </div>
+  <div class=" text-center">
+    {type}
+  </div>
 
-  <button>
+  <button on:click={removeField}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

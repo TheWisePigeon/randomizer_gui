@@ -1,3 +1,4 @@
 import { writable } from "svelte/store";
 
-export const fields = writable([])
+let array :{name: string, type: string}[] = []
+export const fields = writable(array)
