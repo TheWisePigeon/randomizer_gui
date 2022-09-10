@@ -23,9 +23,13 @@
   let name: string;
   let type: string;
   const addField = () => {
+    if (name == undefined) {
+      alert("Field name can not be empty");
+      return false;
+    }
     for (const field in fieldsArray) {
       if (fieldsArray[field].name == name) {
-        alert('A field with this name already exists')
+        alert("A field with this name already exists");
         return false;
       }
     }
@@ -34,11 +38,17 @@
 </script>
 
 <div class=" w-2/5  justify-center h-screen">
-  <div class="text-center">Describe your user schema</div>
+  <div class="text-center">
+    Describe your user schema. <br /> Enter your field name and choose it's
+    type. <br />Once done, click the + button. Click on the trash icon to remove a field
+  </div>
+  <div class=" h-10" >
+
+  </div>
   <div class=" flex justify-between my-4">
     <input
       bind:value={name}
-      class=" bg-transparent border-white border-b focus:outline-none"
+      class=" bg-transparent text-center border-white border-b focus:outline-none"
       type="text"
       name=""
       id=""
@@ -74,7 +84,15 @@
     </button>
   </div>
   <div class=" flex justify-between" />
-  {#each fieldsArray as field}
-    <Field name={field.name} type={field.type} />
-  {/each}
+  <div class=" h-10">
+
+  </div>
+  <p class=" text-center">Schema</p>
+  <div
+    class=" h-96 overflow-y-scroll space-y-3  border rounded border-white"
+  >
+    {#each fieldsArray as field}
+      <Field name={field.name} type={field.type} />
+    {/each}
+  </div>
 </div>

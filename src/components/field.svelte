@@ -7,11 +7,11 @@
   };
 </script>
 
-<div class=" flex justify-between w-full ">
-  <div class=" text-center">
+<div class=" flex justify-evenly w-full border-white border-b my-2">
+  <div class="   w-2/5">
     {name}
   </div>
-  <div class=" text-center">
+  <div class=" w-2/5">
     {type}
   </div>
 
