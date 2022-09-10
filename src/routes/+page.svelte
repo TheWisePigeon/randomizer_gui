@@ -39,13 +39,25 @@
     name='' 
   };
 
-  const generate = ()=>{
-    console.log(fieldsArray);
-    let postData = {}
+  const generate = async()=>{
     let schema: { [x: string]: string; } = {}
     fieldsArray.forEach(element => {
         schema[element.name]= element.type
     });
+    let postData = {
+        "rows": rows,
+        "format": format,
+        "schema": schema
+    }
+    // console.log(JSON.stringify(postData));
+    const response = await axios.post(
+        'http://127.0.0.1:5500/generate',
+        postData
+    ).then(
+        res=>res.data
+    )
+    console.log(response);
+    
     
   }
 </script>
@@ -115,7 +127,7 @@
          <span class=" text-red-700">100 rows max</span>
      {/if}
    </div>
-    <select class=" bg-transparent border-b border-white " name="" id="">
+    <select bind:value="{format}" class=" bg-transparent border-b border-white " name="" id="">
         <option class=" bg-slate-700" value="csv">CSV</option>
         <option class=" bg-slate-700" value="json">JSON</option>
     </select>
