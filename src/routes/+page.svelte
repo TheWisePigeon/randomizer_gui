@@ -7,8 +7,6 @@
     type: string
   }[]
 
- 
-
   fields.subscribe((value) => {
     fieldsArray = value;
   });
@@ -21,20 +19,27 @@
   generators.then((value) => {
     generatorsArray = value.data.generators as ArrayLike<unknown>
   });
-</script>
 
+  let name : string
+  let type : string
+  const addField = ()=>{
+    fields.update(
+        fields=>[...fields, {name: name, type: type }]
+    )
+  }
+</script>
 <div class=" w-2/5  justify-center h-screen">
   <div class="text-center">Describe your user schema</div>
   <div class=" flex justify-between my-4">
-    <input class=" bg-transparent border-white border-b focus:outline-none" type="text" name="" id="" placeholder="Field" />
+    <input bind:value="{name}" class=" bg-transparent border-white border-b focus:outline-none" type="text" name="" id="" placeholder="Field" />
     {#if generatorsArray != null}
-    <select class=" bg-transparent border-white border-b" name="type" id="">
+    <select bind:value="{type}" class=" bg-transparent border-white border-b" name="type" id="">
       {#each generatorsArray as generator}
         <option class=" bg-slate-700" value={generator}>{generator}</option>
       {/each}
     </select>
   {/if}
-    <button>
+    <button on:click="{addField}">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
