@@ -116,8 +116,8 @@
      {/if}
    </div>
     <select class=" bg-transparent border-b border-white " name="" id="">
-        <option class=" bg-transparent" value="csv">CSV</option>
-        <option class=" bg-transparent" value="json">JSON</option>
+        <option class=" bg-slate-700" value="csv">CSV</option>
+        <option class=" bg-slate-700" value="json">JSON</option>
     </select>
   </div>
   <div class=" text-center bg-green-700 my-3">
