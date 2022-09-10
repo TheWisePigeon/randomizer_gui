@@ -13,7 +13,7 @@
 
   let generatorsArray: ArrayLike<unknown>;
   const generators = Promise.resolve(
-    axios.get("http://127.0.0.1:5500/generators")
+    axios.get("https://web-production-553b.up.railway.app/generators")
   );
 
   generators.then((value) => {
@@ -51,7 +51,7 @@
     }
     // console.log(JSON.stringify(postData));
     const response = await axios.post(
-        'http://127.0.0.1:5500/generate',
+        'https://web-production-553b.up.railway.app/generate',
         postData
     ).then(
         res=>res.data
