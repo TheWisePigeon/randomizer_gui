@@ -3,7 +3,7 @@
   import { fields } from "../stores/stores";
   import axios from "axios";
   let fieldsArray: {
-    name: string;
+    name: string ;
     type: string;
   }[];
 
@@ -23,7 +23,7 @@
   let name: string;
   let type: string;
   const addField = () => {
-    if (name == undefined) {
+    if (name == undefined || name=='') {
       alert("Field name can not be empty");
       return false;
     }
@@ -34,6 +34,7 @@
       }
     }
     fields.update((fields) => [...fields, { name: name, type: type }]);
+    name='' 
   };
 </script>
 

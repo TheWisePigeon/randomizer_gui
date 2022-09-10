@@ -1,9 +1,13 @@
 <script lang="ts">
+  import { fields } from "../stores/stores";
   export let name: string;
   export let type: string;
 
   const removeField = () => {
-    alert("duh");
+    
+    fields.update((fields) =>fields.filter(
+      element=>element.name!==name
+    ))
   };
 </script>
 
