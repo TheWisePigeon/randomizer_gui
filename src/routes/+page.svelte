@@ -22,6 +22,8 @@
 
   let name: string;
   let type: string;
+  let format: string
+  let rows: number
   const addField = () => {
     if (name == undefined || name=='') {
       alert("Field name can not be empty");
@@ -39,9 +41,10 @@
 
   const generate = ()=>{
     console.log(fieldsArray);
-    let postData: { [x: string]: string; } = {}
+    let postData = {}
+    let schema: { [x: string]: string; } = {}
     fieldsArray.forEach(element => {
-        postData[element.name]= element.type
+        schema[element.name]= element.type
     });
     
   }
@@ -104,6 +107,18 @@
     {#each fieldsArray as field}
       <Field name={field.name} type={field.type} />
     {/each}
+  </div>
+  <div class="mt-3 flex justify-around">
+   <div class="">
+     <input class=" bg-transparent border-b border-white text-center block" bind:value="{rows}" type="text" name="" id="" placeholder="Number of rows">
+     {#if rows>100}
+         <span class=" text-red-700">100 rows max</span>
+     {/if}
+   </div>
+    <select class=" bg-transparent border-b border-white " name="" id="">
+        <option class=" bg-transparent" value="csv">CSV</option>
+        <option class=" bg-transparent" value="json">JSON</option>
+    </select>
   </div>
   <div class=" text-center bg-green-700 my-3">
     <button on:click="{generate}" class=" w-full">
