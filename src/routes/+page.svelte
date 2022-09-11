@@ -134,7 +134,7 @@
   </div>
   <div class="mt-3 flex justify-around">
    <div class="">
-     <input class=" bg-transparent border-b border-white text-center block" bind:value="{rows}" type="text" name="" id="" placeholder="Number of rows">
+     <input class=" bg-transparent focus:outline-none border-b border-white text-center block" bind:value="{rows}" type="text" name="" id="" placeholder="Number of rows">
      {#if rows>100}
          <span class=" text-red-700">100 rows max</span>
      {/if}
