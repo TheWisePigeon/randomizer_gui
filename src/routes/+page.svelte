@@ -40,6 +40,18 @@
   };
 
   const generate = async()=>{
+    if (fieldsArray.length==0) {
+      alert('Schema is empty')
+      return false
+    }
+    if (!rows) {
+      alert('Number of rows can not be empty')
+      return
+    }
+    if (!(Number.isInteger(Number(rows)))) {
+      alert('Number of rows must be a value between 1 and 100')
+      return
+    }
     let schema: { [x: string]: string; } = {}
     fieldsArray.forEach(element => {
         schema[element.name]= element.type
@@ -49,7 +61,7 @@
         "format": format,
         "schema": schema
     }
-    // console.log(JSON.stringify(postData));
+    console.log(postData);
     const response = await axios.post(
         'https://web-production-553b.up.railway.app/generate',
         postData
