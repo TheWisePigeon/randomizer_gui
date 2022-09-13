@@ -2,6 +2,7 @@
   import Field from "../components/field.svelte";
   import { fields } from "../stores/stores";
   import axios from "axios";
+  import fileDownload from 'js-file-download'
   let fieldsArray: {
     name: string ;
     type: string;
@@ -68,7 +69,7 @@
     ).then(
         res=>res.data
     )
-    console.log(response);
+    fileDownload(response, 'data.json')
     
     
   }
