@@ -141,7 +141,6 @@
      {/if}
    </div>
     <select bind:value="{format}" class=" bg-transparent border-b border-white " name="" id="">
-        <option class=" bg-slate-700" value="csv">CSV</option>
         <option class=" bg-slate-700" value="json">JSON</option>
     </select>
   </div>
