@@ -69,7 +69,9 @@
     ).then(
         res=>res.data
     )
-    fileDownload(response, 'data.json')
+    
+    const stringified = JSON.stringify(response)
+    fileDownload(stringified, 'data.json')
     
     
   }
